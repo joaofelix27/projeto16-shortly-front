@@ -56,7 +56,8 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   ::placeholder { 
-    color: #FFFFFF;
+    color: #9C9C9C;
+
   }
 `;
 
