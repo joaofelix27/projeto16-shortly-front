@@ -1,12 +1,17 @@
 import styled from "styled-components";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <>
       <TopContainer>
         <TopRight>
-          <TopRightText>Entrar</TopRightText>
-          <TopRightText>Cadastre-se</TopRightText>
+          <Link to="/login" style={{ textDecoration: "none" }}>
+            <TopRightText>Entrar</TopRightText>
+          </Link>
+          <Link to="/cadastro" style={{ textDecoration: "none" }}>
+            <TopRightText>Cadastre-se</TopRightText>
+          </Link>
         </TopRight>
       </TopContainer>
       <Logo>
@@ -35,6 +40,7 @@ const TopRightText = styled.h1`
   line-height: 18px;
   letter-spacing: 0em;
   margin-left: 22px;
+  color:#000000;
 `;
 const Logo = styled.div`
   width: 100%;
@@ -49,6 +55,6 @@ const Logo = styled.div`
     line-height: 80px;
     letter-spacing: 0em;
     color: #000000;
-    margin-right:8px;
+    margin-right: 8px;
   }
 `;

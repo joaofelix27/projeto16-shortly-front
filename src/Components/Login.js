@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import axios from "axios";
+import Header from "./Header";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -62,11 +63,7 @@ function Login() {
   const formularioLogin = montarFormularioLogin();
   return (
     <Container>
-      <Header>
-        <div>
-          <h1>Narutin</h1>
-        </div>
-      </Header>
+      <Header/>
       <FormularioLogin onSubmit={fazerLogin}>{formularioLogin}</FormularioLogin>
     </Container>
   );
@@ -78,26 +75,6 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
-`;
-const Header = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 150px;
-  div {
-    margin-top: 17px;
-    h1 {
-      font-family: Permanent Marker;
-      font-size: 32px;
-      font-weight: 400;
-      line-height: 47px;
-      letter-spacing: 0em;
-      color: #fafafa;
-    }
-  }
-  img {
-    width: 70px;
-  }
 `;
 const FormularioLogin = styled.div`
   padding-top: 24px;

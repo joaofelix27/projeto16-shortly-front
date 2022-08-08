@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -19,16 +18,16 @@ export default function Cadastro() {
       return;
     }
     if (email !== "") {
-      const URL = `https://narutinstore-api.herokuapp.com/register`;
+      const URL = `https://shortly27.herokuapp.com/signUp`;
       const profileData = {
         email: email,
         name: nome,
         password: senha,
+        confirmPassword:senhaconf,
       };
       const promise = axios.post(URL, profileData);
       promise
         .then((response) => {
-          console.log(response);
           if (response.status === 201) {
             alert("E-mail cadastrado!");
             navigate("/login");
@@ -72,11 +71,8 @@ export default function Cadastro() {
             placeholder="Confirme a senha"
             onChange={(e) => setSenhaconf(e.target.value)}
           ></input>
-          <button type="submit">Cadastrar</button>
+          <button type="submit">Criar Conta</button>
         </form>
-        <Link to="/login" style={{ textDecoration: "none" }}>
-          <h1>Já tem uma conta? Entre agora!</h1>
-        </Link>
       </>
     );
   }
@@ -99,7 +95,7 @@ const Container = styled.div`
   height: 100vh;
 `;
 const FormularioCadastro = styled.div`
-  margin-top:140px;
+  margin-top: 140px;
   form {
     display: flex;
     flex-direction: column;
@@ -121,28 +117,20 @@ const FormularioCadastro = styled.div`
     line-height: 18px;
     letter-spacing: 0em;
     text-align: left;
+    color: #9c9c9c;
   }
   button {
-    border: 0px;
-    background-color: #ea8b1c;
-    height: 46px;
-    width: 326px;
-    border-radius: 5px;
-    font-family: Raleway;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 23px;
-    letter-spacing: 0em;
-    color: #000000;
-    margin-bottom: 32px;
-  }
-  h1 {
-    font-family: Raleway;
-    font-size: 15px;
+      margin-top:61px;
+    height: 60px;
+    width: 182px;
+    border-radius: 12px;
+    background-color: #5d9040;
+    font-family: Lexend Deca;
+    font-size: 14px;
     font-weight: 700;
     line-height: 18px;
-    color: #000000;
-    text-align: center;
+    letter-spacing: 0em;
+    border:0px;
+    color: #FFFFFF;
   }
 `;
