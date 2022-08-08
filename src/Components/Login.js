@@ -53,9 +53,6 @@ function Login() {
           ></input>
           <button type="submit">Entrar</button>
         </form>
-        <Link to="/register" style={{ textDecoration: "none" }}>
-          <h1>Primeira vez? Cadastre-se!</h1>
-        </Link>
       </>
     );
   }
@@ -63,7 +60,7 @@ function Login() {
   const formularioLogin = montarFormularioLogin();
   return (
     <Container>
-      <Header/>
+      <Header />
       <FormularioLogin onSubmit={fazerLogin}>{formularioLogin}</FormularioLogin>
     </Container>
   );
@@ -77,7 +74,7 @@ const Container = styled.div`
   height: 100vh;
 `;
 const FormularioLogin = styled.div`
-  padding-top: 24px;
+  margin-top: 140px;
   form {
     display: flex;
     flex-direction: column;
@@ -86,43 +83,34 @@ const FormularioLogin = styled.div`
   }
 
   input {
-    height: 58px;
-    width: 326px;
-    border-radius: 5px;
-    background-color: #000000;
-    border: 0px;
-    margin-bottom: 13px;
-    font-family: Raleway;
-    font-size: 20px;
+    height: 60px;
+    width: 769px;
+    background: #ffffff;
+    border: 1px solid rgba(120, 177, 89, 0.25);
+    box-shadow: 0px 4px 24px rgba(120, 177, 89, 0.12);
+    border-radius: 12px;
+    padding: 22px;
+    font-family: Lexend Deca;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 23px;
+    line-height: 18px;
     letter-spacing: 0em;
     text-align: left;
-    color: #ffffff;
-
-    padding: 16px;
+    color: #9c9c9c;
+    margin-bottom:25px;
   }
   button {
-    border: 0px;
-    background-color: #ea8b1c;
-    height: 46px;
-    width: 326px;
-    border-radius: 5px;
-    font-family: Raleway;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 23px;
-    letter-spacing: 0em;
-    color: #000000;
-    margin-bottom: 32px;
-  }
-  h1 {
-    font-family: Raleway;
-    font-size: 15px;
+    margin-top: 36px;
+    height: 60px;
+    width: 182px;
+    border-radius: 12px;
+    background-color: #5d9040;
+    font-family: Lexend Deca;
+    font-size: 14px;
     font-weight: 700;
     line-height: 18px;
-    color: #000000;
-    text-align: center;
+    letter-spacing: 0em;
+    border: 0px;
+    color: #ffffff;
   }
 `;

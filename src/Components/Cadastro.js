@@ -118,9 +118,10 @@ const FormularioCadastro = styled.div`
     letter-spacing: 0em;
     text-align: left;
     color: #9c9c9c;
+    margin-bottom:25px;
   }
   button {
-      margin-top:61px;
+      margin-top:36px;
     height: 60px;
     width: 182px;
     border-radius: 12px;
