@@ -1,37 +1,77 @@
 import styled from "styled-components";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-export default function Header() {
+import {useNavigate} from 'react-router-dom';
+export default function Header({ loginData, setLogin }) {
+  const navigate = useNavigate();
+  function logOut(){
+    localStorage.removeItem("loginData");
+    setLogin(null)
+    navigate("/")
+}
   return (
     <>
-      <TopContainer>
+      <TopContainer loginData={loginData}> {
+        loginData ?   <TopLeft>{
+          `Seja bem-vindo(a), ${loginData.name}!`
+          }
+       
+      </TopLeft> : ""
+      }
+      
         <TopRight>
-          <Link to="/login" style={{ textDecoration: "none" }}>
-            <TopRightText>Entrar</TopRightText>
-          </Link>
-          <Link to="/cadastro" style={{ textDecoration: "none" }}>
+          {loginData ? (
+            <Link to="/home" style={{ textDecoration: "none" }}>
+              <TopRightText>Home</TopRightText>
+            </Link>
+          ) : (
+            ""
+          )}
+          {loginData ? (
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <TopRightText>Ranking</TopRightText>
+            </Link>
+          ) : (
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              <TopRightText>Entrar</TopRightText>
+            </Link>
+          )}
+               {loginData ? (
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <TopRightText onClick={()=> logOut()}>Sair</TopRightText>
+            </Link>
+          ) : (
+            <Link to="/cadastro" style={{ textDecoration: "none" }}>
             <TopRightText>Cadastre-se</TopRightText>
           </Link>
+          )}
+        
         </TopRight>
       </TopContainer>
-      <Logo>
-        <h1>Shortly</h1>
-        <img src={logo} />
-      </Logo>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <Logo>
+          <h1>Shortly</h1>
+          <img src={logo} />
+        </Logo>
+      </Link>
     </>
   );
 }
 const TopContainer = styled.div`
-  width: 100%;
+  width: 1100px;
   margin-top: 60px;
-  margin-right: 171px;
   display: flex;
-  justify-content: right;
+  justify-content:${props => props.loginData ? "space-between": "right"};
 `;
 const TopRight = styled.div`
   display: flex;
-  justify-content: right;
   align-items: center;
+`;
+const TopLeft = styled.div`
+  display: flex;
+  align-items: center;
+  color: #5D9040;
+
 `;
 const TopRightText = styled.h1`
   font-family: Lexend Deca;
@@ -40,7 +80,8 @@ const TopRightText = styled.h1`
   line-height: 18px;
   letter-spacing: 0em;
   margin-left: 22px;
-  color:#000000;
+  color: #9C9C9C;
+
 `;
 const Logo = styled.div`
   width: 100%;

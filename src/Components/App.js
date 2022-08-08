@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GlobalStyle from "../assets/globalstyle";
 import Cadastro from "./Cadastro";
-import Home from './Home'
+import Ranking from './Ranking'
 import Login from "./Login";
+import Home from "./Home";
 
 function App() {
 
@@ -18,9 +19,10 @@ function App() {
         <GlobalStyle />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Cadastro" element={<Cadastro />} />
-            <Route path="/Login" element={<Login />} />
+            <Route path="/" element={<Ranking />} />
+            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Home />} />
           </Routes>
         </BrowserRouter>
     </>
